@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Book Listing</string>
     <string name="hint">Search by author or book title</string>
-    <string name="notFound">We could not find any books.\nPlease search another term.</string>
+    <string name="notFound">Could not find any book according to you search.\nPlease use another keyword to find.</string>
     <string name="no_internet">No internet connection available</string>
 </resources>
