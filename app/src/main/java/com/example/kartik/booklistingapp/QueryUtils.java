@@ -1,12 +1,9 @@
 package com.example.kartik.booklistingapp;
 
-import android.text.TextUtils;
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,11 +19,9 @@ import java.util.List;
  * Created by KARTIK on 3/4/2018.
  */
 
-public final class QueryUtils{
+public final class QueryUtils {
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
-    /**
-     * Returns new URL object from the given string URL.
-     */
+
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
@@ -80,6 +75,7 @@ public final class QueryUtils{
         }
         return jsonResponse;
     }
+
     /**
      * Convert the {@link InputStream} into a String which contains the
      * whole JSON response from the server.
@@ -106,7 +102,7 @@ public final class QueryUtils{
             return null;
         }
 
-        for (int i = 0; i < authorsList.length(); i++){
+        for (int i = 0; i < authorsList.length(); i++) {
             if (i == 0) {
                 authorsListInString = authorsList.getString(0);
             } else {
@@ -132,7 +128,7 @@ public final class QueryUtils{
             }
             JSONArray jsonArray = jsonResponse.getJSONArray("items");
 
-            for (int i = 0; i < jsonArray.length(); i++){
+            for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject bookObject = jsonArray.getJSONObject(i);
 
                 JSONObject bookInfo = bookObject.getJSONObject("volumeInfo");

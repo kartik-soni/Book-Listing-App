@@ -10,15 +10,9 @@ import java.util.List;
  */
 
 public class BooksLoader extends AsyncTaskLoader<List<Books>> {
-    /** Query URL */
+
     private String mUrl;
 
-    /**
-     * Constructs a new {@link BooksLoader}.
-     *
-     * @param context of the activity
-     * @param url to load data from
-     */
     public BooksLoader(Context context, String url) {
         super(context);
         mUrl = url;
