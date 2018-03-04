@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             public void onClick(View v) {
                 if (checkInternetConnection()){
                     LoaderManager loaderManager = getLoaderManager();
-                    loaderManager.initLoader(BOOK_LOADER_ID, null, null);
+                    loaderManager.initLoader(BOOK_LOADER_ID, null, MainActivity.this);
+                    if(loaderManager!=null) {
+                        loaderManager.restartLoader(BOOK_LOADER_ID, null, MainActivity.this);
+                    }
                 } else {
                     View loadingIndicator = findViewById(R.id.loading_indicator);
                     loadingIndicator.setVisibility(View.GONE);
