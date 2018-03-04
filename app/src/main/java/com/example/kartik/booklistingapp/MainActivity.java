@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     EditText userInput;
     ImageButton searchButton;
     ListView booksListView;
+    TextView noResult;
     private static final int BOOK_LOADER_ID = 1;
     private BooksAdapter mBooksAdapter;
     static final String SEARCH_RESULTS = "booksSearchResults";
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        noResult = findViewById(R.id.no_data_found);
         userInput = findViewById(R.id.edit_Text);
         searchButton = findViewById(R.id.imageButton);
         booksListView = findViewById(R.id.listView);
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
                     loaderManager.initLoader(BOOK_LOADER_ID, null, MainActivity.this);
                     if (loaderManager != null) {
                         loaderManager.restartLoader(BOOK_LOADER_ID, null, MainActivity.this);
+                        noResult.setVisibility(View.GONE);
                     }
                 }
             });
@@ -86,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         if (books != null && !books.isEmpty()) {
             mBooksAdapter.addAll(books);
         } else {
-            Toast.makeText(MainActivity.this, R.string.notFound, Toast.LENGTH_LONG).show();
+            noResult.setVisibility(View.VISIBLE);
         }
     }
 
