@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<Books>> {
+
     EditText userInput;
     ImageButton searchButton;
     ListView booksListView;
@@ -98,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     public void onLoaderReset(Loader<List<Books>> loader) {
 // Loader reset, so we can clear out our existing data.
         mBooksAdapter.clear();
-
     }
 
     @Override
