@@ -1,4 +1,4 @@
-# Book-Listing-App-Udacity-Android-Foundation-2
+# Book-Listing-App
 - Project **Book Listing** of Android Basics Nanodegree
 
 ## Android Goodies
